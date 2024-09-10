@@ -28,7 +28,131 @@
     padding: 0;
     box-sizing: border-box;
   }
+  .about-us-section {
+    padding: 20px;
+  }
+  
+  .about-us-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  .about-us-section p {
+    margin-bottom: 15px;
+  }
+  .specials-section {
+    display: flex;
+  }
+  
+  .specials-list {
+    padding: 20px;
+  }
+  
+  .specials-image {
+    background-image: url('https://placehold.co/600x400'); /* Fallback image */
+    background-size: cover;
+    background-position: center;
+  }
+.specials-section {
+  display: flex;
+  height: 100vh; /* Adjust height as needed */
+}
 
+.specials-list {
+  padding: 20px;
+}
+
+.specials-image {
+  background-image: url('https://placehold.co/600x400'); /* Fallback image */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .specials-section {
+    flex-direction: column; /* Stack the items vertically */
+  }
+
+  .specials-list {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white; /* Change text color to white */
+    padding: 20px; /* Ensure padding is maintained */
+    position: relative; /* For stacking context */
+    z-index: 1; /* Ensure text is above the background */
+  }
+
+  .specials-image {
+    position: absolute; /* Position absolute to cover the whole section */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Send the image behind the text */
+  }
+}
+.menu-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.menu-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.menu-item {
+  display: flex;
+  margin: 1rem;
+  width: 45%;
+}
+.menu-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+.menu-item h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.menu-item p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+.menu-item .price {
+  color: #d4af37;
+  font-weight: 700;
+}
+.menu-item .label {
+  background-color: #d4af37;
+  color: #1a1a1a;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+}
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: #d3d3d3;
+}
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  .menu-item {
+      width: 100%;
+  }
+  .vertical-line {
+      display: none;
+  }
+}
   nav{
     max-width: 1200px;
     display: flex;

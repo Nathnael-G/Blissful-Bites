@@ -1,12 +1,24 @@
-import React from 'react';
-import Swiper from 'swiper';
+import { useState, useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import AboutUs from './Components/AboutUs';
+import Specials from './Components/Specials';
+import Menu from './Components/Menu';
 
 function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setCurrentIndex((prevIndex) => (prevIndex + 1) % 3);
+                }, 2000);
+                return () => clearInterval(interval);
+            }, []);
+          
   return (
-    <div className="max-w-7xl mx-auto h-full">
+    <>
+    <div className="h-full mx-auto max-w-7xl">
       <nav>
         <div className='Logo'>
           Blissful Bites
@@ -18,48 +30,58 @@ function App() {
           <li><a href="#">Contact Us</a></li>
         </ul>
       </nav>
-      <section className="container grid grid-cols-2 gap-10 py-10">
-        <div className="content__container flex flex-col justify-center">
-          <h1 className="text-4xl font-medium text-green-800 mb-4">
+      <section className="container">
+        <div className="flex flex-col justify-center content__container">
+          <h1 className="text-4xl font-medium text-green-800">
             Welcome to <br />
-            <span className="heading__1 font-bold">Blisful Bites</span><br />
-            <span className="heading__2 font-bold text-green-600">Explore our Food Adventure.</span><br />
+            <span className="font-bold heading__1">Blissful Bites</span><br />
+            <span className="font-bold heading__2">Explore our Food Adventure.</span><br />
           </h1>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-lg text-gray-600">
             Discover an exquisite fusion of flavors and ambiance that promises to elevate your dining experience. Indulge in our globally-inspired menu, crafted with care and passion. Join us and embark on a journey of culinary delight. Your table awaits.
           </p>
-          <form action="#" className="flex items-center">
-            <input type="text" placeholder="Send Us A Message" className="w-full max-w-md py-2 pl-10 text-lg text-gray-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" />
-            <button type="submit" className="text-lg font-medium text-white bg-green-600 hover:bg-green-800 transition duration-300 py-2 px-4 rounded">
+          <form action="#">
+            <input type="text" placeholder="Send Us A Message" className="focus:outline-none focus:ring-2 focus:ring-green-600" />
+            <button type="submit" className="">
               Send
             </button>
           </form>
         </div>
         <div className="swiper">
           <div className="swiper-wrapper">
-            <div className="swiper-slide" data-swiper-autoplay="4000">
-              <div className="image__container grid grid-cols-2 gap-4">
-                <img src="./images/img1.png" alt="" className="w-full max-w-md rounded-lg" />
-                <img src="./images/img2.png" alt="" className="w-full max-w-md rounded-lg" />
+            <div className="swiper-slide" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: 'transform 0.5s ease' }}>
+              <div className="grid grid-cols-2 gap-4 image__container">
+                <img src="https://placehold.co/300x300" alt="Plate of dessert with berries"  className="w-full max-w-md rounded-lg" />
+                <img src="https://placehold.co/300x300" alt="Plate of dessert with berries" className="w-full max-w-md rounded-lg" />
               </div>
             </div>
-            <div className="swiper-slide" data-swiper-autoplay="4000">
-              <div className="image__container grid grid-cols-2 gap-4">
-                <img src="./images/img3.png" alt="" className="w-full max-w-md rounded-lg" />
-                <img src="./images/img4.png" alt="" className="w-full max-w-md rounded-lg" />
+            <div className="swiper-slide" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: 'transform 0.5s ease' }}>
+              <div className="grid grid-cols-2 gap-4 image__container">
+                <img src="https://placehold.co/300x300" alt="Plate of dessert with berries" className="w-full max-w-md rounded-lg" />
+                <img src="https://placehold.co/300x300" alt="Plate of dessert with berries" className="w-full max-w-md rounded-lg" />
               </div>
             </div>
-            <div className="swiper-slide" data-swiper-autoplay="4000">
-              <div className="image__container grid grid-cols-2 gap-4">
-                <img src="./images/img5.png" alt="" className="w-full max-w-md rounded-lg" />
-                <img src="./images/img6.png" alt="" className="w-full max-w-md rounded-lg" />
+            <div className="swiper-slide" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: 'transform 0.5s ease' }}>
+              <div className="grid grid-cols-2 gap-4 image__container">
+                <img src="https://placehold.co/300x300" alt="Plate of dessert with berries" className="w-full max-w-md rounded-lg" />
+                <img src="https://placehold.co/300x300" alt="Plate of dessert with berries" className="w-full max-w-md rounded-lg" />
               </div>
             </div>
           </div>
-          <div className="swiper-pagination"></div>
+          <div className="flex justify-center mt-4 space-x-2">
+            <span className={`w-3 h-3 ${currentIndex === 0 ? 'bg-green-700' : 'bg-gray-300'} rounded-full cursor-pointer`} onClick={() => setCurrentIndex(0)}></span>
+            <span className={`w-3 h-3 ${currentIndex === 1 ? 'bg-green-700' : 'bg-gray-300'} rounded-full cursor-pointer`} onClick={() => setCurrentIndex(1)}></span>
+            <span className={`w-3 h-3 ${currentIndex === 2 ? 'bg-green-700' : 'bg-gray-300'} rounded-full cursor-pointer`} onClick={() => setCurrentIndex(2)}></span>
+          </div>
         </div>
       </section>
+      <AboutUs />
+      <Specials className="h-full" />
+      <Menu className="h-full" />
+
     </div>
+    </>
+
   );
 }
 
