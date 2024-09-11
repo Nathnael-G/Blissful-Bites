@@ -27,6 +27,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
   }
   .about-us-section {
     padding: 20px;
@@ -48,7 +49,6 @@
   }
   
   .specials-image {
-    background-image: url('https://placehold.co/600x400'); /* Fallback image */
     background-size: cover;
     background-position: center;
   }
@@ -62,7 +62,6 @@
 }
 
 .specials-image {
-  background-image: url('https://placehold.co/600x400'); /* Fallback image */
   background-size: cover;
   background-position: center;
 }
@@ -74,7 +73,6 @@
   }
 
   .specials-list {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     color: white; /* Change text color to white */
     padding: 20px; /* Ensure padding is maintained */
     position: relative; /* For stacking context */
@@ -152,6 +150,62 @@
   .vertical-line {
       display: none;
   }
+}
+.zoom {
+  animation: zoomInOut 10s infinite;
+}
+@keyframes zoomInOut {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.menu-item1 {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.menu-item1 img {
+  width: 100%;
+  height: auto;
+}
+.menu-item1 h3 {
+  margin-top: 20px;
+  font-size: 24px;
+}
+.menu-item1 a {
+  display: block;
+  margin-top: 10px;
+  color: #84f701;
+  text-decoration: none;
+}
+.decorative-line {
+  width: 50px;
+  height: 2px;
+  background-color: black;
+  margin: 10px auto;
+}
+.shine {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: all 0.5s;
+}
+.menu-item1:hover .shine {
+  left: 125%;
+  transition: all 0.5s;
 }
   nav{
     max-width: 1200px;
