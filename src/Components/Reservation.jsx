@@ -8,7 +8,7 @@ function Reservation() {
             <div className="space-y-4">
                 <div className="flex items-center justify-center space-x-2">
                     <i className="fas fa-paper-plane text-2xl"></i>
-                    <p className="text-xl">info@savorandspicebistro.com</p>
+                    <p className="text-xl">info@blissfulbites.com</p>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                     <i className="fas fa-phone text-2xl"></i>
@@ -16,7 +16,7 @@ function Reservation() {
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                     <i className="fab fa-linkedin text-2xl"></i>
-                    <p className="text-xl">@savorandspice</p>
+                    <p className="text-xl">@blissfulbites</p>
                 </div>
             </div>
             <div className="mt-12">
